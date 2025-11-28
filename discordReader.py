@@ -140,7 +140,7 @@ def clickServerIcon():
     y = float(y)
     x,y = py.toAbs(x,y)
     pya.moveTo(x,y)
-    time.sleep(.2)
+    time.sleep(.3)
     pya.click()
     
 
@@ -166,13 +166,9 @@ def run():
             elapsed = time.time() - start
             print(f"{elapsed:.2f} seconds since start (text read {j})")
             loop()
+            time.sleep(2)
 
 
 run()
    
 
-
-
-'''scroll_bottom()
-time.sleep(0.2)
-read_latest()'''

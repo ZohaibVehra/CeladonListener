@@ -8,6 +8,10 @@ pip install pyautogui
 pip install python-dotenv
 pip install pyperclip
 pip install psutil
+pip install pywin32
+pip install flask
+pip install requests
+
 
 # env file set up
 D1_NEWPOST=%coordinates of the bottom left corner of the latest discord post, slightly below and left of the icon%  example -> D1_NEWPOST=14.8,42.01
