@@ -1,6 +1,8 @@
 import pyautogui as py
 import math
 import random
+import time 
+
 '''
 This file will consist of util functions to make PyAutoGUI easier to use for our purposes
 as well as add inherent randomness to mouse movements and clicks to throw off bot detection
@@ -23,6 +25,8 @@ def toAbs(relx, rely):
 def position():
     return py.position()
 
+def pposition():
+    return toPercent(py.position()[0], py.position()[1])
 
 #random movement towards point
 def moveTo(x,y):
@@ -196,7 +200,15 @@ def moveToPercent(x,y):
     
     return
 
+def click():
+    py.click()
+def rclick():
+    py.click(button='right')
+def scrollBottom():
+    py.scroll(-100000)
 
+def press(key):
+    py.press(key)
 
-moveTo(2000, 100)
-moveToPercent(99,50)
+time.sleep(1)
+print(pposition())
