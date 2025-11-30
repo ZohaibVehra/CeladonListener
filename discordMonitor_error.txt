@@ -1,0 +1,20 @@
+Traceback (most recent call last):
+  File "C:\CeladonListener\discordMonitor.py", line 55, in <module>
+    f.write("Kill detected. Killing reader.\n")
+KeyboardInterrupt
+Traceback (most recent call last):
+  File "C:\CeladonListener\discordMonitor.py", line 65, in <module>
+    with open(r"C:\CeladonListener\monitor_debug.txt","a") as f:
+KeyboardInterrupt
+Traceback (most recent call last):
+  File "C:\CeladonListener\discordMonitor.py", line 68, in <module>
+    if not running:
+KeyboardInterrupt
+Traceback (most recent call last):
+  File "C:\CeladonListener\discordMonitor.py", line 72, in <module>
+    pass
+KeyboardInterrupt
+Traceback (most recent call last):
+  File "C:\CeladonListener\discordMonitor.py", line 98, in <module>
+    time.sleep(5)
+KeyboardInterrupt

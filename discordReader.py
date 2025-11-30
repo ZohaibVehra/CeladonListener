@@ -1,3 +1,4 @@
+import sys
 from utils import pyUtils as py
 from dotenv import load_dotenv
 import os
@@ -21,8 +22,17 @@ this allows us to not notify on the same virtual queue message through multiple 
 the assumption is that after every virtual queue post there will be one with product info
 '''
 
-LAST_VIRTUAL = False
+KILL_FILE_PATH = r"Z:\kill.txt"   # shared kill-switch file
 
+def kill_switch_on():
+    try:
+        with open(KILL_FILE_PATH, "r") as f:
+            return f.read().strip().lower() == "kill"
+    except:
+        return False
+
+LAST_VIRTUAL = False
+SALE_PATH = r"C:\CeladonListener\FlaskServer\sale.txt" #path to file
 load_dotenv()
 # os.getenv("API_KEY") usage example
 
@@ -53,6 +63,18 @@ def read_latest():
     py.press('down')
     time.sleep(0.2)
     py.press('down')
+
+    #for test
+    time.sleep(0.2)
+    py.press('down')
+    time.sleep(0.2)
+    py.press('down')
+    time.sleep(0.2)
+    py.press('down')
+    time.sleep(0.2)
+    py.press('down')
+    #for test 
+
     pya.hotkey('ctrl', 'c')
     pya.press('enter')
     time.sleep(.2)
@@ -61,17 +83,26 @@ def read_latest():
 #run once initialization is done
 def loop():
     global LAST_VIRTUAL
+    if kill_switch_on():
+        print("Kill flag detected. Exiting discordReader cleanly...")
+        sys.exit(0)
     scroll_bottom()
     text = read_latest()
-    print(f'zzz latest copy is {text}')
-    if 'shipping promotion starts' in text:
+    print(f'latest copy is {text}')
+    if 'batman' in text or 'Batman' in text:
+        if not LAST_VIRTUAL:
+            updateSaletxt(text)
         LAST_VIRTUAL = True
-        print('hit virtual queue')
-
-        #call next file
-        #   
     else:
         LAST_VIRTUAL = False #reset we can now find virtual queue and trigger again
+
+
+def updateSaletxt(text):
+    try:
+        with open(SALE_PATH, 'w') as file:
+            file.write(text)
+    except Exception as e:
+        print(f"Error writing sale.txt: {e}")
 
 
 def is_taskbar_window(hwnd):
@@ -107,7 +138,6 @@ def is_discord_visible():
     for hwnd, title in taskbar_windows:
         if title.split()[-1] == 'Discord':
             if win32gui.IsIconic(hwnd):  
-                print('two')
                 win32gui.ShowWindow(hwnd, win32con.SW_RESTORE)
                 win32gui.SetForegroundWindow(hwnd)
                 time.sleep(0.2)
@@ -155,20 +185,29 @@ def check_and_initialize():
 
 #this is what we run, note it will handle initialize
 def run():
+    if kill_switch_on():
+        print("Kill flag detected before start. Exiting cleanly...")
+        sys.exit(0)
     start = time.time()  # record start time once
 
-    for i in range(10):
+    for i in range(60*12): #3 min
         elapsed = time.time() - start
         print(f"{elapsed:.2f} seconds since start ( discord check {i})")
         check_and_initialize()
 
-        for j in range(20):
+        for j in range(24): #24 = roughly 1 min
+            if kill_switch_on():
+                print("Kill flag detected during message check. Exiting cleanly...")
+                sys.exit(0)
             elapsed = time.time() - start
-            print(f"{elapsed:.2f} seconds since start (text read {j})")
+            print(f"{elapsed:.2f} seconds since start (big L {i} text read {j})")
             loop()
             time.sleep(2)
 
 
+time.sleep(2)
+
 run()
    
+
 

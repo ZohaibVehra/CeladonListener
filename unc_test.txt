@@ -1,0 +1,11 @@
+ Volume in drive \\VBOXSVR\VMStuff is VBOX_VMStuff
+ Volume Serial Number is D075-0080
+
+ Directory of \\VBOXSVR\VMStuff
+
+2025-11-28  02:55 PM    <DIR>          .
+2025-11-28  02:55 PM    <DIR>          ..
+2025-11-28  03:31 PM                 4 kill.txt
+2025-11-28  02:15 PM    <DIR>          System Volume Information
+               1 File(s)              4 bytes
+               3 Dir(s)  630,210,981,888 bytes free

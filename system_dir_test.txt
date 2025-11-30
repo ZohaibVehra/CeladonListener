@@ -1,0 +1,28 @@
+ Volume in drive C has no label.
+ Volume Serial Number is 3EA2-663E
+
+ Directory of C:\CeladonListener
+
+2025-11-28  03:47 PM    <DIR>          .
+2025-11-28  03:47 PM    <DIR>          ..
+2025-11-28  12:36 PM               162 .env
+2025-11-28  12:25 PM               123 .gitignore
+2025-11-28  03:37 PM             1,436 discordMonitor.py
+2025-11-28  03:37 PM                 0 discordMonitor_error.txt
+2025-11-28  03:37 PM                 0 discordMonitor_log.txt
+2025-11-28  03:22 PM             5,769 discordReader.py
+2025-11-28  04:41 AM    <DIR>          FlaskServer
+2025-11-28  02:56 PM             1,655 health_check_test.py
+2025-11-28  03:04 PM                72 health_test_log.txt
+2025-11-28  03:16 AM                 0 listener.py
+2025-11-28  03:46 PM                34 monitor_debug.txt
+2025-11-28  04:22 AM               656 README.md
+2025-11-28  03:47 PM                 0 system_dir_test.txt
+2025-11-28  03:46 PM                 0 system_monitor_output.txt
+2025-11-28  03:44 PM                16 system_python.txt
+2025-11-28  03:42 PM                21 system_test.txt
+2025-11-28  02:44 PM             1,764 testKill.py
+2025-11-28  03:31 PM                 3 testkill.txt
+2025-11-28  03:16 AM    <DIR>          utils
+              17 File(s)         11,711 bytes
+               4 Dir(s)  75,083,612,160 bytes free
