@@ -1,4 +1,6 @@
 FlaskServer/health_log.txt
 FlaskServer/serverConsistency.txt
+temp_auto_push.bat
 FlaskServer/serverConsistencyNoReq.txt
-FlaskServer/sale.txt
+FlaskServer/sale.txt.gitignore
+temp_interactive_push.bat
